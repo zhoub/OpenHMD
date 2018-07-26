@@ -295,7 +295,7 @@ OHMD_APIENTRYDLL int OHMD_APIENTRY ohmd_ctx_probe(ohmd_context* ctx);
  * @param out The location to return a const char*
  * @return 0 on success, <0 on failure.
  **/
-OHMD_APIENTRYDLL int ohmd_gets(ohmd_string_description type, const char** out);
+OHMD_APIENTRYDLL int OHMD_APIENTRY ohmd_gets(ohmd_string_description type, const char** out);
 
 /**
  * Get device description from enumeration list index.

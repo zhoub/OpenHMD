@@ -16,23 +16,25 @@ void ohmd_sleep(double);
 // gets float values from the device and prints them
 void print_infof(ohmd_device* hmd, const char* name, int len, ohmd_float_value val)
 {
-	float f[len];
+	float *f = malloc(len * sizeof(float));
 	ohmd_device_getf(hmd, val, f);
 	printf("%-25s", name);
 	for(int i = 0; i < len; i++)
 		printf("%f ", f[i]);
 	printf("\n");
+    free(f);
 }
 
 // gets int values from the device and prints them
 void print_infoi(ohmd_device* hmd, const char* name, int len, ohmd_int_value val)
 {
-	int iv[len];
+	int *iv = malloc(len * sizeof(float));
 	ohmd_device_geti(hmd, val, iv);
 	printf("%-25s", name);
 	for(int i = 0; i < len; i++)
 		printf("%d ", iv[i]);
 	printf("\n");
+    free(iv);
 }
 
 int main(int argc, char** argv)
@@ -125,7 +127,7 @@ int main(int argc, char** argv)
 	int device_class = 0;
 	ohmd_device_geti(hmd, OHMD_DEVICE_CLASS, &device_class);
 	// Ask for n rotation quaternions and position vectors
-	for(int i = 0; i < 10000; i++){
+	for(int i = 0; i < 0; i++){
 		ohmd_ctx_update(ctx);
 
 		// this can be used to set a different zero point

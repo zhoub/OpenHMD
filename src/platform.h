@@ -12,21 +12,21 @@
 
 #include "openhmd.h"
 
-double ohmd_get_tick();
-void ohmd_sleep(double seconds);
-void ohmd_toggle_ovr_service(int state);
+OHMD_APIENTRYDLL double OHMD_APIENTRY ohmd_get_tick();
+OHMD_APIENTRYDLL void OHMD_APIENTRY ohmd_sleep(double seconds);
+OHMD_APIENTRYDLL void OHMD_APIENTRY ohmd_toggle_ovr_service(int state);
 
 typedef struct ohmd_thread ohmd_thread;
 typedef struct ohmd_mutex ohmd_mutex;
 
-ohmd_mutex* ohmd_create_mutex(ohmd_context* ctx);
-void ohmd_destroy_mutex(ohmd_mutex* mutex);
+OHMD_APIENTRYDLL ohmd_mutex* OHMD_APIENTRY ohmd_create_mutex(ohmd_context* ctx);
+OHMD_APIENTRYDLL void OHMD_APIENTRY ohmd_destroy_mutex(ohmd_mutex* mutex);
 
-void ohmd_lock_mutex(ohmd_mutex* mutex);
-void ohmd_unlock_mutex(ohmd_mutex* mutex);
+OHMD_APIENTRYDLL void OHMD_APIENTRY ohmd_lock_mutex(ohmd_mutex* mutex);
+OHMD_APIENTRYDLL void OHMD_APIENTRY ohmd_unlock_mutex(ohmd_mutex* mutex);
 
-ohmd_thread* ohmd_create_thread(ohmd_context* ctx, unsigned int (*routine)(void* arg), void* arg);
-void ohmd_destroy_thread(ohmd_thread* thread);
+OHMD_APIENTRYDLL ohmd_thread* OHMD_APIENTRY ohmd_create_thread(ohmd_context* ctx, unsigned int (*routine)(void* arg), void* arg);
+OHMD_APIENTRYDLL void OHMD_APIENTRY ohmd_destroy_thread(ohmd_thread* thread);
 
 /* String functions */
 
