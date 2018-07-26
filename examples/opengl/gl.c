@@ -9,6 +9,7 @@
 
 #include "gl.h"
 #include <string.h>
+#include <stdio.h>
 #include <math.h>
 
 #ifdef __unix
@@ -22,6 +23,13 @@
 void init_gl(gl_ctx* ctx, int w, int h)
 {
 	memset(ctx, 0, sizeof(gl_ctx));
+
+    // Check size of destkop.
+    SDL_DisplayMode displayMode;
+    memset(&displayMode, 0, sizeof(displayMode));
+    SDL_GetCurrentDisplayMode(0, &displayMode);
+    w = (w > displayMode.w ? w / 2 : w);
+    h = (h > displayMode.h ? h / 2 : h);
 
 	// == Initialize SDL ==
 	int ret = SDL_Init(SDL_INIT_EVERYTHING);
