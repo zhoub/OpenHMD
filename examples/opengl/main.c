@@ -309,7 +309,7 @@ int main(int argc, char** argv)
 		// Draw scene into framebuffer.
 		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, left_fbo);
 		glViewport(0, 0, eye_w, eye_h);
-		glClearColor(0.0, 0.0, 0.0, 1.0);
+		glClearColor(0.5f, 0.0, 0.0, 0.5f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		draw_scene(list);
 		if (crosshair_overlay) {
@@ -331,6 +331,7 @@ int main(int argc, char** argv)
 		// Draw scene into framebuffer.
 		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, right_fbo);
 		glViewport(0, 0, eye_w, eye_h);
+        glClearColor(0.0f, 0.5f, 0, 0.5f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		draw_scene(list);
 		if (crosshair_overlay) {
